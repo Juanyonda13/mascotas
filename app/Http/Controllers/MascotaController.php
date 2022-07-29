@@ -104,9 +104,10 @@ class MascotaController extends Controller
      * @param  \App\Models\Mascota  $mascota
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Mascota $mascota)
-    {
-        $mascota->delete();
+    public function destroy(Mascota $mascotas,$id){
+        $m= Mascota::findOrFail($id);   
+        $m->delete();
+    //     $mascota->save();
         return redirect()->route('mascotas.index');
     }
 }

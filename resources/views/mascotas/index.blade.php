@@ -48,12 +48,16 @@
                                 <a class="bi bi-pencil" href="/mascotas/{{$m->id}}/edit" type="submit" role="button"></a>
                             
                             </div>
+                            <form action="{{ url("mascotas/{$m->id}") }}" method="POST">
+                                @csrf
+                                @method ('DELETE')
                             <div class="container">
-                                <i class="bi bi-trash3"></i>
+                                <button class="bi bi-trash3"></button>
                             </div>
+                            </form>
                         </article>
                     
-                   </div>
+                         </div>
                    @endforeach
             </section>
         </div>
