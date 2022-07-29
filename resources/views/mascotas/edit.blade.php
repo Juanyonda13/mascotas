@@ -23,12 +23,14 @@
             </header>
             <section class="container m-2 d-flex w-100 justify-content-center">
                 <form action="{{route('mascotas.update',$mascota)}}" class="w-75" method="POST">
+                    @method('PUT')
                     @csrf
                     <section class="container mb-3">
                         <input type="text" class="form-control bg-light" placeholder="nombre" name="nombre" value="{{$mascota->nombre}}">
                     </section>
                     <section class="container mb-3">
                         <select id="" class="form-select" value="nombre_categorias" name="categorias_id">
+                            
                             <option value="{{$mascota->categorias_id}}" selected class=""> {{$mascota->categorias_id}}</option>
                             @foreach($categorias as $c )                           
                             <option value="{{$c->id}}">{{$c->nombre_categorias}}</option>

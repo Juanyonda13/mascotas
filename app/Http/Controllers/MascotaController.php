@@ -107,7 +107,6 @@ class MascotaController extends Controller
     public function destroy(Mascota $mascota)
     {
         $mascota->delete();
-        $mascota->save();
         return redirect()->route('mascotas.index');
     }
 }
