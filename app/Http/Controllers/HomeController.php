@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Mascota;
+use App\Models\Categorias;
+use App\Models\Raza;
+use App\Models\Genero;
+
 
 class HomeController extends Controller
 {
@@ -23,6 +28,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $mascotas= Mascota::simplePaginate();
+        $razas= Raza::simplePaginate();
+        return view('mascotas.index',compact('mascotas','razas'));
     }
 }
